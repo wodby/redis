@@ -21,16 +21,16 @@
 | REDIS_PASSWORD                    | String |                          | |
 | REDIS_DBFILENAME                  | String | dump.rdb                 | |                                    
 | REDIS_APPENDONLY                  | String | no                       | |
-| REDIS_SAVE_TO_DISK                | String |                          | |
+| REDIS_SAVE_TO_DISK                | Bool   |                          | |
 | REDIS_SAVES                       | String | 900:1/300:10/60:10000    | |
 | REDIS_MAXMEMORY                   | String | 128m                     | |
 | REDIS_MAXMEMORY_POLICY            | String | allkeys-lru              | |
-| REDIS_MAXMEMORY_SAMPLES           | String | 3                        | |
-| REDIS_LIST_MAX_ZIPLIST_ENTRIES    | String | 512                      | |
+| REDIS_MAXMEMORY_SAMPLES           | Int    | 3                        | |
+| REDIS_LIST_MAX_ZIPLIST_ENTRIES    | Int    | 512                      | |
 | REDIS_LIST_MAX_ZIPLIST_VALUE      | Int    | 64                       | |
-| REDIS_SET_MAX_INTSET_ENTRIES      | String | 512                      | |
+| REDIS_SET_MAX_INTSET_ENTRIES      | Int    | 512                      | |
 | REDIS_ACTIVE_REHASHING            | String | yes                      | |
-| REDIS_LUA_TIME_LIMIT              | String | 5000                     | |
+| REDIS_LUA_TIME_LIMIT              | Int    | 5000                     | |
 | REDIS_SLOWLOG_SLOWER_THAN         | Int    | 10000                    | |
 | REDIS_SLOWLOG_MAX_LEN             | Int    | 32                       | |
 | REDIS_LATENCY_MONITOR_THRESHOLD   | Int    | 0                        | |
