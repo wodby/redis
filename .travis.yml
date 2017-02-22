@@ -4,9 +4,10 @@ services:
   - docker
 
 env:
+  global:
+    - LATEST_VERSION=3.2
   matrix:
     - VERSION=3.2
-    - LATEST_VERSION=3.2
 
 script:
   - cd ./$VERSION
