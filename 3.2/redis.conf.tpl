@@ -8,10 +8,10 @@ timeout {{ getenv "REDIS_TIMEOUT" "300" }}
 tcp-keepalive {{ getenv "REDIS_TCP_KEEPALIVE" "60" }}
 databases {{ getenv "REDIS_DATABASES" "16" }}
 {{ if getenv "REDIS_PASSWORD" }}requirepass {{ getenv "REDIS_PASSWORD" }}{{ end }}
-dir /var/lib/redis
-dbfilename {{ getenv "REDIS_DBFILENAME" "dump.rdb" }}
 appendonly {{ getenv "REDIS_APPENDONLY" "no" }}
 {{ if getenv "REDIS_SAVE_TO_DISK" }}
+dir /var/lib/redis
+dbfilename {{ getenv "REDIS_DBFILENAME" "dump.rdb" }}
 {{ $saves := split (getenv "REDIS_SAVES" "900:1/300:10/60:10000") "/" }}
 {{ range $saves }}
 {{ $save := split . ":" }}
