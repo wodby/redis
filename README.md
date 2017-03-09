@@ -6,7 +6,7 @@
 
 ## Supported tags and respective `Dockerfile` links:
 
-- [`3.2`, `latest` (*3.2/Dockerfile*)](https://github.com/wodby/redis/tree/master/3.2/Dockerfile)
+- [`3.2-2.0.1`, `3.2`, `latest` (*3.2/Dockerfile*)](https://github.com/wodby/redis/tree/master/3.2/Dockerfile)
 
 ## Environment Variables Available for Customization
 
