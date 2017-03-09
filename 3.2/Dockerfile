@@ -17,4 +17,4 @@ COPY docker-entrypoint.sh /
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
-CMD [ "redis-server" ]
+CMD [ "redis-server" , "/etc/redis.conf" ]

@@ -12,8 +12,7 @@
 
 | Environment Variable | Type | Default Value | Description |
 | -------------------- | -----| ------------- | ----------- |
-| REDIS_DAEMONIZE                   | String | no                       | |
-| REDIS_LOGFILE                     | String | /proc/self/fd/2          | |
+| REDIS_LOGFILE                     | String |                          | |
 | REDIS_TCP_BACKLOG                 | Int    | 511                      | | 
 | REDIS_TIMEOUT                     | Int    | 300                      | |
 | REDIS_TCP_KEEPALIVE               | Int    | 60                       | |

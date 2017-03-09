@@ -1,6 +1,6 @@
-daemonize {{ getenv "REDIS_DAEMONIZE" "no" }}
+daemonize no
 pidfile /var/run/redis/redis.pid
-logfile {{ getenv "REDIS_LOGFILE" "/proc/self/fd/2" }}
+{{ if getenv "REDIS_LOGFILE" }}logfile {{ getenv "REDIS_LOGFILE" }}{{ end }}
 port 6379
 tcp-backlog {{ getenv "REDIS_TCP_BACKLOG" "511" }}
 bind 0.0.0.0
