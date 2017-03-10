@@ -4,6 +4,8 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/wodby/redis.svg)](https://hub.docker.com/r/wodby/redis)
 [![Docker Stars](https://img.shields.io/docker/stars/wodby/redis.svg)](https://hub.docker.com/r/wodby/redis)
 
+[![Wodby Slack](https://www.google.com/s2/favicons?domain=www.slack.com) Join us on Slack](https://slack.wodby.com/)
+
 ## Supported tags and respective `Dockerfile` links:
 
 - [`3.2-2.0.1`, `3.2`, `latest` (*3.2/Dockerfile*)](https://github.com/wodby/redis/tree/master/3.2/Dockerfile)
@@ -34,3 +36,7 @@
 | REDIS_SLOWLOG_MAX_LEN             | Int    | 32                       | |
 | REDIS_LATENCY_MONITOR_THRESHOLD   | Int    | 0                        | |
 | REDIS_NOTIFY_KEYSPACE_EVENTS      | String |                          | |
+
+## Using in Production
+
+Deploy Redis container to your own server via [![Wodby](https://www.google.com/s2/favicons?domain=wodby.com) Wodby](https://wodby.com).
