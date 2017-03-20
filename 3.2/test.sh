@@ -14,7 +14,7 @@ trap "docker rm -vf $cid > /dev/null" EXIT
 
 redis() {
 	docker run --rm -i \
-		--link "${NAME}":redis \
+		--link "${NAME}" \
 		"${IMAGE}" \
 		"${@}"
 }
