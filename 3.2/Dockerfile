@@ -5,6 +5,7 @@ ENV GOTLP_VER 0.1.5
 RUN apk add --no-cache \
         bash \
         ca-certificates \
+        make \
         tar \
         tzdata \
         wget && \
@@ -14,6 +15,7 @@ RUN apk add --no-cache \
 COPY redis.conf.tpl /etc/gotpl/
 
 COPY docker-entrypoint.sh /
+COPY actions /usr/local/bin/
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 

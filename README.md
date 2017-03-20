@@ -37,6 +37,34 @@
 | REDIS_LATENCY_MONITOR_THRESHOLD   | Int    | 0                        | |
 | REDIS_NOTIFY_KEYSPACE_EVENTS      | String |                          | |
 
+## Actions
+
+Usage:
+```
+make COMMAND [params ...]
+ 
+commands:
+    check-ready host=<redis> max_try=<8> wait_seconds=<5>
+    flushall host=<redis>  
+    
+default params values:
+    host localhost
+    max_try 30
+    wait_seconds 1
+```
+
+Examples:
+
+```bash
+# Check if Redis is ready
+docker exec -ti [ID] make check-ready -f /usr/local/bin/actions.mk
+
+# Flush all cache
+docker exec -ti [ID] make flushall host=redis -f /usr/local/bin/actions.mk
+```
+
+You can skip -f option if you use run instead of exec. 
+
 ## Using in Production
 
 Deploy Redis container to your own server via [![Wodby](https://www.google.com/s2/favicons?domain=wodby.com) Wodby](https://wodby.com).

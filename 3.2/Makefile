@@ -11,7 +11,7 @@ build:
 	docker build -t $(REPO):$(VERSION) ./
 
 test:
-	./test.sh $(REPO):$(VERSION)
+	./test.sh $(REPO):$(VERSION) $(NAME)
 
 push:
 	docker push $(REPO):$(VERSION)
