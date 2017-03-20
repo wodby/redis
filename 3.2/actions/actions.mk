@@ -1,4 +1,4 @@
-.PHONY: flush check-ready check-live
+.PHONY: flushall check-ready check-live
 
 host ?= localhost
 max_try ?= 30
