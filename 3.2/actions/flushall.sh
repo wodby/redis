@@ -3,7 +3,7 @@
 set -e
 
 if [[ ! -z "${DEBUG}" ]]; then
-  set -x
+    set -x
 fi
 
 if [[ ! -z "${REDIS_PASSWORD}" ]]; then

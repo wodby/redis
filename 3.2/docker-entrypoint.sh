@@ -3,7 +3,7 @@
 set -e
 
 if [[ ! -z "${DEBUG}" ]]; then
-  set -x
+    set -x
 fi
 
 gotpl "/etc/gotpl/redis.conf.tpl" > "/etc/redis.conf"

@@ -3,21 +3,18 @@
 set -e
 
 if [[ ! -z "${DEBUG}" ]]; then
-  set -x
+    set -x
 fi
 
-IMAGE=$1
-NAME=$2
+name=$1
+image=$2
 
-cid="$(docker run -d --name "${NAME}" "${IMAGE}")"
+cid="$(docker run -d --name "${name}" "${image}")"
 trap "docker rm -vf $cid > /dev/null" EXIT
 
 redis() {
-	docker run --rm -i \
-		--link "${NAME}" \
-		"${IMAGE}" \
-		"${@}"
+	docker run --rm -i --link "${name}" "${image}" "${@}" host="${name}"
 }
 
-redis make check-ready host="${NAME}"
-redis make flushall host="${NAME}"
+redis make check-ready max_try=10
+redis make flushall
