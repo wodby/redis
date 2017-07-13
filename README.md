@@ -1,18 +1,24 @@
-# Redis docker container image
+# Redis Docker Container Image
 
 [![Build Status](https://travis-ci.org/wodby/redis.svg?branch=master)](https://travis-ci.org/wodby/redis)
 [![Docker Pulls](https://img.shields.io/docker/pulls/wodby/redis.svg)](https://hub.docker.com/r/wodby/redis)
 [![Docker Stars](https://img.shields.io/docker/stars/wodby/redis.svg)](https://hub.docker.com/r/wodby/redis)
 [![Wodby Slack](http://slack.wodby.com/badge.svg)](http://slack.wodby.com)
 
-## Supported tags and respective `Dockerfile` links:
+## Docker Images
 
-- [`3.2-2.0.1`, `3.2`, `latest` (*3.2/Dockerfile*)](https://github.com/wodby/redis/tree/master/3.2/Dockerfile)
+Images are built via [Travis CI](https://travis-ci.org/wodby/redis) and published on [Docker Hub](https://hub.docker.com/r/wodby/redis). 
 
-## Environment variables available for customization
+## Versions
 
-| Environment Variable | Default Value | Description |
-| -------------------- | ------------- | ----------- |
+| Nginx | Alpine Linux |
+| ----- | ------------ |
+| [3.2.9](https://github.com/wodby/redis/tree/master/3.2/Dockerfile) | 3.6 |  
+
+## Environment Variables
+
+| Variable | Default Value | Description |
+| -------- | ------------- | ----------- |
 | REDIS_LOGFILE                     |                          | |
 | REDIS_TCP_BACKLOG                 | 511                      | | 
 | REDIS_TIMEOUT                     | 300                      | |
@@ -36,7 +42,7 @@
 | REDIS_LATENCY_MONITOR_THRESHOLD   | 0                        | |
 | REDIS_NOTIFY_KEYSPACE_EVENTS      |                          | |
 
-## Actions
+## Orchestration Actions
 
 Usage:
 ```
@@ -53,18 +59,7 @@ default params values:
     delay_seconds 0
 ```
 
-Examples:
+## Deployment
 
-```bash
-# Check if Redis is ready
-docker exec -ti [ID] make check-ready -f /usr/local/bin/actions.mk
+Deploy Redis to your server via [![Wodby](https://www.google.com/s2/favicons?domain=wodby.com) Wodby](https://cloud.wodby.com/stackhub/7548eb5a-c61b-4480-9f36-2501917692b3).
 
-# Flush all cache
-docker exec -ti [ID] make flushall host=redis -f /usr/local/bin/actions.mk
-```
-
-You can skip -f option if you use run instead of exec. 
-
-## Using in production
-
-Deploy Redis container to your own server via [![Wodby](https://www.google.com/s2/favicons?domain=wodby.com) Wodby](https://wodby.com).
