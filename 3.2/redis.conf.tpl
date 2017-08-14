@@ -10,7 +10,7 @@ databases {{ getenv "REDIS_DATABASES" "16" }}
 {{ if getenv "REDIS_PASSWORD" }}requirepass {{ getenv "REDIS_PASSWORD" }}{{ end }}
 appendonly {{ getenv "REDIS_APPENDONLY" "no" }}
 {{ if getenv "REDIS_SAVE_TO_DISK" }}
-dir /var/lib/redis
+dir /data
 dbfilename {{ getenv "REDIS_DBFILENAME" "dump.rdb" }}
 {{ $saves := split (getenv "REDIS_SAVES" "900:1/300:10/60:10000") "/" }}
 {{ range $saves }}
