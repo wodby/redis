@@ -11,10 +11,10 @@ Images are built via [Travis CI](https://travis-ci.org/wodby/redis) and publishe
 
 ## Versions
 
-| Redis                                                              | Alpine Linux |
-| ------------------------------------------------------------------ | ------------ |
-| [4.0.1](https://github.com/wodby/redis/tree/master/4.0/Dockerfile) | 3.6          |
-| [3.2.9](https://github.com/wodby/redis/tree/master/3.2/Dockerfile) | 3.6          |
+| Redis                                                               | Alpine Linux |
+| ------------------------------------------------------------------- | ------------ |
+| [4.0.1](https://github.com/wodby/redis/tree/master/4.0/Dockerfile)  | 3.6          |
+| [3.2.10](https://github.com/wodby/redis/tree/master/3.2/Dockerfile) | 3.6          |
 
 ## Environment Variables
 
