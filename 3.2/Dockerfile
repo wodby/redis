@@ -1,4 +1,4 @@
-FROM redis:3.2.9-alpine
+FROM redis:3.2.10-alpine
 
 ENV GOTLP_VER 0.1.5
 
