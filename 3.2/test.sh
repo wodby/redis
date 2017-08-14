@@ -19,7 +19,7 @@ redis() {
 redis make check-ready max_try=10 host="${name}"
 
 echo -n "Checking Redis version... "
-redis redis-server -v | grep -q "v=3.2.9"
+redis redis-server -v | grep -q "v=3.2.10"
 echo "OK"
 
 echo -n "Flushing Redis cache... "
