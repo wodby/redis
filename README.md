@@ -10,8 +10,8 @@
 
 * All images are based on Alpine Linux
 * Base image: [_/redis](https://hub.docker.com/r/_/redis)
-* [Travis CI builds](https://travis-ci.org/wodby/gitlab) 
-* [Docker Hub](https://hub.docker.com/r/wodby/gitlab)
+* [Travis CI builds](https://travis-ci.org/wodby/redis) 
+* [Docker Hub](https://hub.docker.com/r/wodby/redis)
 
 [_(Dockerfile)_]: https://github.com/wodby/redis/tree/master/Dockerfile
 
