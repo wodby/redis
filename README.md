@@ -3,18 +3,24 @@
 [![Build Status](https://travis-ci.org/wodby/redis.svg?branch=master)](https://travis-ci.org/wodby/redis)
 [![Docker Pulls](https://img.shields.io/docker/pulls/wodby/redis.svg)](https://hub.docker.com/r/wodby/redis)
 [![Docker Stars](https://img.shields.io/docker/stars/wodby/redis.svg)](https://hub.docker.com/r/wodby/redis)
+[![Docker Layers](https://images.microbadger.com/badges/image/wodby/redis.svg)](https://microbadger.com/images/wodby/redis)
 [![Wodby Slack](http://slack.wodby.com/badge.svg)](http://slack.wodby.com)
 
 ## Docker Images
 
-Images are built via [Travis CI](https://travis-ci.org/wodby/redis) and published on [Docker Hub](https://hub.docker.com/r/wodby/redis). 
+* All images are based on Alpine Linux
+* Base image: [_/redis](https://hub.docker.com/r/_/redis)
+* [Travis CI builds](https://travis-ci.org/wodby/gitlab) 
+* [Docker Hub](https://hub.docker.com/r/wodby/gitlab)
 
-## Versions
+[_(Dockerfile)_]: https://github.com/wodby/redis/tree/master/Dockerfile
 
-| Redis                                                               | Alpine Linux |
-| ------------------------------------------------------------------- | ------------ |
-| [4.0.1](https://github.com/wodby/redis/tree/master/4.0/Dockerfile)  | 3.6          |
-| [3.2.10](https://github.com/wodby/redis/tree/master/3.2/Dockerfile) | 3.6          |
+Supported tags and respective `Dockerfile` links:
+
+* `4`, `4.0`, `latest` [_(Dockerfile)_]
+* `3`, `3.2` [_(Dockerfile)_]
+
+For better reliability we additionally release images with stability tags (`wodby/redis:4.0-X.X.X`) which correspond to [git tags](https://github.com/wodby/redis/releases). We **strongly recommend** using images only with stability tags.
 
 ## Environment Variables
 
