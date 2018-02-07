@@ -1,21 +1,14 @@
 language: bash
 
-sudo: required
-
 services:
   - docker
 
 env:
   global:
-    - DOCKER_VERSION=17.06.2
     - LATEST_TAG=4.0
   matrix:
-    - TAG=4.0 MAJOR_VER=4
-    - TAG=3.2 MAJOR_VER=3 REDIS_VER=3.2.11
-
-before_install:
-  - sudo apt-get update
-  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce="${DOCKER_VERSION}~ce-0~ubuntu"
+    - TAG=4.0 REDIS_VER=4.0.8 EXTRA_TAG=4
+    - TAG=3.2 REDIS_VER=3.2.11 EXTRA_TAG=3
 
 script:
   - make && make test
@@ -30,8 +23,8 @@ after_success: |
 
     make release
 
-    if [[ -n "${MAJOR_VER}" ]]; then
-      make release TAG="${MAJOR_VER}"
+    if [[ -n "${EXTRA_TAG}" ]]; then
+      make release TAG="${EXTRA_TAG}"
     fi
 
     if [[ "${TAG}" == "${LATEST_TAG}" ]]; then
@@ -42,4 +35,5 @@ after_success: |
 notifications:
   on_failure: never
   slack:
-    secure: "dW+ZW7nu+EikU6d2meYDncgZ9XA7+3Awma6ZuM15+e+mXSfC5d9mTof2PcWl4leBNdSA6TxSmVi50A6ezc8m2Msbcu1Vk63gUdXeco2uQOTp/eECXoD+DQ2807QtG2n6QKx2+wFwMzg4TR70czRiG3tRwHO5VpO8iIIEpnaHIup5kCmKE82uKUOqWbkqo0zzq7ReIXiDIaabK4Lf1WL/17CTeYIK4QM1IR3IN5W+JhV32ChYqLIDOE2rAXCxCMmheyYmWlPMVx1KwzNZCg61KBNvcyLQ/5ZkZyTSgkAJF7LKwaX+/Q6SX29vKToZR1mVnc8mqiiu8pTGJDboSCWrHHciPj++b+tZz3WouRI2VePlmZrZ57nWQMfB/Z5Ttz5mrDxW2sjSulp2mHFaGvZqGpersNiSbdoMuMTfssV84mYR7NMoP4ajnK+hMiYSEjH0NiA8RG6EjkAgdrS8v6QlM4YevUkzU6Zc8JVA+6HxAGVEFKi89omVopgpT0ZDh3JvbjdZWAXvXNRfGxNsJFR5Dy9u6yjB4EqWr8E0iZaEvBvJgHJHsAhiaWKB61Q+z0vS71iulvxvFqhmLYhCkxdyBHNOmGyi5DJNxt3FF18GV+okJ47rO2brSxdzXNomd09cIPDJN+r42l1MqYJKILUcDaqeQe7vwP0XND08wegOlPM="
+    secure: |
+      dW+ZW7nu+EikU6d2meYDncgZ9XA7+3Awma6ZuM15+e+mXSfC5d9mTof2PcWl4leBNdSA6TxSmVi50A6ezc8m2Msbcu1Vk63gUdXeco2uQOTp/eECXoD+DQ2807QtG2n6QKx2+wFwMzg4TR70czRiG3tRwHO5VpO8iIIEpnaHIup5kCmKE82uKUOqWbkqo0zzq7ReIXiDIaabK4Lf1WL/17CTeYIK4QM1IR3IN5W+JhV32ChYqLIDOE2rAXCxCMmheyYmWlPMVx1KwzNZCg61KBNvcyLQ/5ZkZyTSgkAJF7LKwaX+/Q6SX29vKToZR1mVnc8mqiiu8pTGJDboSCWrHHciPj++b+tZz3WouRI2VePlmZrZ57nWQMfB/Z5Ttz5mrDxW2sjSulp2mHFaGvZqGpersNiSbdoMuMTfssV84mYR7NMoP4ajnK+hMiYSEjH0NiA8RG6EjkAgdrS8v6QlM4YevUkzU6Zc8JVA+6HxAGVEFKi89omVopgpT0ZDh3JvbjdZWAXvXNRfGxNsJFR5Dy9u6yjB4EqWr8E0iZaEvBvJgHJHsAhiaWKB61Q+z0vS71iulvxvFqhmLYhCkxdyBHNOmGyi5DJNxt3FF18GV+okJ47rO2brSxdzXNomd09cIPDJN+r42l1MqYJKILUcDaqeQe7vwP0XND08wegOlPM=

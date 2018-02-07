@@ -1,16 +1,17 @@
 -include env_make
 
-REDIS_VER ?= 4.0.2
-TAG ?= $(REDIS_VER)
-FROM_TAG = $(REDIS_VER)-alpine
+REDIS_VER ?= 4.0.8
+
+TAG ?= $(shell echo "${REDIS_VER}" | grep -oE '^[0-9]+\.[0-9]+')
+BASE_IMAGE_TAG = $(REDIS_VER)-alpine
 
 REPO = wodby/redis
 NAME = redis-$(REDIS_VER)
 
 ifneq ($(STABILITY_TAG),)
-ifneq ($(TAG),latest)
-    override TAG := $(TAG)-$(STABILITY_TAG)
-endif
+    ifneq ($(TAG),latest)
+        override TAG := $(TAG)-$(STABILITY_TAG)
+    endif
 endif
 
 .PHONY: build test push shell run start stop logs clean release
@@ -18,7 +19,10 @@ endif
 default: build
 
 build:
-	docker build -t $(REPO):$(TAG) --build-arg FROM_TAG=$(FROM_TAG) --build-arg REDIS_VER=$(REDIS_VER) ./
+	docker build -t $(REPO):$(TAG) \
+		--build-arg BASE_IMAGE_TAG=$(BASE_IMAGE_TAG) \
+		--build-arg REDIS_VER=$(REDIS_VER) \
+		./
 
 test:
 	IMAGE=$(REPO):$(TAG) NAME=$(NAME) ./test.sh

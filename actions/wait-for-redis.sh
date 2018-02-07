@@ -2,7 +2,7 @@
 
 set -e
 
-if [[ ! -z "${DEBUG}" ]]; then
+if [[ -n "${DEBUG}" ]]; then
     set -x
 fi
 
@@ -14,8 +14,8 @@ delay_seconds=$4
 
 sleep "${delay_seconds}"
 
-pingRedis() {
-    if [[ ! -z "${REDIS_PASSWORD}" ]]; then
+ping_redis() {
+    if [[ -n "${REDIS_PASSWORD}" ]]; then
         redis-cli -h "${host}" -a "${REDIS_PASSWORD}" ping
     else
         redis-cli -h "${host}" ping
@@ -23,7 +23,7 @@ pingRedis() {
 }
 
 for i in $(seq 1 "${max_try}"); do
-    if pingRedis | grep 'PONG' &> /dev/null; then
+    if ping_redis | grep 'PONG' &> /dev/null; then
         started=1
         break
     fi
