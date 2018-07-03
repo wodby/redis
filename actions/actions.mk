@@ -8,10 +8,10 @@ delay_seconds ?= 0
 default: check-ready
 
 flushall:
-	flushall.sh $(host)
+	flush_all $(host)
 
 check-ready:
-	wait-for-redis.sh $(host) $(max_try) $(wait_seconds) $(delay_seconds)
+	wait_for_redis $(host) $(max_try) $(wait_seconds) $(delay_seconds)
 
 check-live:
 	@echo "OK"

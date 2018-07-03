@@ -7,7 +7,7 @@
 
 ## Docker Images
 
-!!! For better reliability we release images with stability tags (`wodby/redis:4-X.X.X`) which correspond to [git tags](https://github.com/wodby/redis/releases). We **STRONGLY RECOMMEND** using images only with stability tags. 
+❗For better reliability we release images with stability tags (`wodby/redis:4-X.X.X`) which correspond to [git tags](https://github.com/wodby/redis/releases). We strongly recommend using images only with stability tags. 
 
 Overview:
 
@@ -20,8 +20,8 @@ Overview:
 
 Supported tags and respective `Dockerfile` links:
 
-* `4`, `4.0`, `latest` [_(Dockerfile)_]
-* `3`, `3.2` [_(Dockerfile)_]
+* `4.0`, `4`, `latest` [_(Dockerfile)_]
+* `3.2`, `3` [_(Dockerfile)_]
 
 ## Environment Variables
 
