@@ -5,7 +5,7 @@ services:
 
 env:
   matrix:
-    - REDIS_VER=4.0.10 TAGS=4.0,4,latest
+    - REDIS_VER=4.0.11 TAGS=4.0,4,latest
     - REDIS_VER=3.2.12 TAGS=3.2,3
 
 script:
