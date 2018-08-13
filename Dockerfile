@@ -23,10 +23,10 @@ RUN apk add --update --no-cache -t .redis-rundeps \
     apk del .redis-build-deps; \
     rm -rf /var/cache/apk/*
 
-COPY redis.conf.tpl /etc/gotpl/
+COPY templates /etc/gotpl/
 
 COPY docker-entrypoint.sh /
-COPY actions /usr/local/bin/
+COPY bin /usr/local/bin/
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 

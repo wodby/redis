@@ -1,0 +1,8 @@
+tests
+templates
+.gitignore
+.redis
+.travis.yml
+Makefile
+README.md
+release.sh

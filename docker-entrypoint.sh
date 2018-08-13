@@ -7,7 +7,7 @@ if [[ -n "${DEBUG}" ]]; then
 fi
 
 chown redis:redis /data
-gotpl "/etc/gotpl/redis.conf.tpl" > "/etc/redis.conf"
+gotpl /etc/gotpl/redis.conf.tmpl > /etc/redis.conf
 sed -i '/^\s*$/d' /etc/redis.conf
 
 if [[ $1 == "make" ]]; then
