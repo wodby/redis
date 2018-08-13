@@ -1,5 +1,4 @@
 tests
-templates
 .gitignore
 .redis
 .travis.yml
