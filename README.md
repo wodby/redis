@@ -69,5 +69,5 @@ default params values:
 
 ## Deployment
 
-Deploy Redis to your server via [![Wodby](https://www.google.com/s2/favicons?domain=wodby.com) Wodby](https://cloud.wodby.com/stackhub/7548eb5a-c61b-4480-9f36-2501917692b3).
+Deploy Redis to your server via [![Wodby](https://www.google.com/s2/favicons?domain=wodby.com) Wodby](https://wodby.com/stacks/redis).
 
