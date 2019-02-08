@@ -7,12 +7,12 @@ ARG REDIS_VER
 ENV REDIS_VER="${REDIS_VER}" \
     GOTPL_VER="0.1.5"
 
-RUN apk add --update --no-cache -t .redis-rundeps \
+RUN apk add --update --no-cache -t .wodby-redis-run-deps \
         bash \
         make \
         tzdata; \
     \
-    apk add --update --no-cache -t .redis-build-deps \
+    apk add --update --no-cache -t .wodby-redis-build-deps \
         ca-certificates \
         tar \
         wget; \
@@ -20,7 +20,7 @@ RUN apk add --update --no-cache -t .redis-rundeps \
     gotpl_url="https://github.com/wodby/gotpl/releases/download/${GOTPL_VER}/gotpl-alpine-linux-amd64-${GOTPL_VER}.tar.gz"; \
     wget -qO- "${gotpl_url}" | tar xz -C /usr/local/bin; \
     \
-    apk del .redis-build-deps; \
+    apk del .wodby-redis-build-deps; \
     rm -rf /var/cache/apk/*
 
 COPY templates /etc/gotpl/
