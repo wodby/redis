@@ -6,7 +6,7 @@ services:
 env:
   matrix:
     - REDIS_VER=5.0.4 TAGS=5.0,5,latest
-    - REDIS_VER=4.0.13 TAGS=4.0,4
+    - REDIS_VER=4.0.14 TAGS=4.0,4
 
 script:
   - make && make test
