@@ -1,15 +1,22 @@
 language: bash
 
 services:
-  - docker
+- docker
 
 env:
   matrix:
-    - REDIS_VER=5.0.4 TAGS=5.0,5,latest
-    - REDIS_VER=4.0.14 TAGS=4.0,4
+  - REDIS_VER=5.0.4 TAGS=5.0,5,latest
+  - REDIS_VER=4.0.14 TAGS=4.0,4
 
 script:
-  - make && make test
+- make && make test
 
 after_success:
-  - . "${TRAVIS_BUILD_DIR}/release.sh"
+- . "${TRAVIS_BUILD_DIR}/release.sh"
+
+notifications:
+  email:
+    recipients:
+    - travisci@wodby.com
+    on_success: never
+    on_failure: always
