@@ -7,11 +7,11 @@
 
 ## Docker Images
 
-❗For better reliability we release images with stability tags (`wodby/redis:5-X.X.X`) which correspond to [git tags](https://github.com/wodby/redis/releases). We strongly recommend using images only with stability tags. 
+❗For better reliability we release images with stability tags (`wodby/redis:6-X.X.X`) which correspond to [git tags](https://github.com/wodby/redis/releases). We strongly recommend using images only with stability tags. 
 
 Overview:
 
-* All images are based on Alpine Linux
+* All images based on Alpine Linux
 * Base image: [_/redis](https://hub.docker.com/r/_/redis)
 * [Travis CI builds](https://travis-ci.org/wodby/redis) 
 * [Docker Hub](https://hub.docker.com/r/wodby/redis)
@@ -20,8 +20,8 @@ Overview:
 
 Supported tags and respective `Dockerfile` links:
 
-* `5.0`, `5`, `latest` [_(Dockerfile)_]
-* `4.0`, `4` [_(Dockerfile)_]
+* `6.0`, `6`, `latest` [_(Dockerfile)_]
+* `5.0`, `5` [_(Dockerfile)_]
 
 ## Environment Variables
 
