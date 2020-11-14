@@ -1,5 +1,5 @@
 name: Build
-description: Build node image
+description: Build redis image
 inputs:
   version:
     description: version
