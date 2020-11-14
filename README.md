@@ -1,6 +1,6 @@
 # Redis Docker Container Image
 
-[![Build Status](https://travis-ci.org/wodby/redis.svg?branch=master)](https://travis-ci.org/wodby/redis)
+[![Build Status](https://github.com/wodby/redis/workflows/Build%20docker%20image/badge.svg)](https://github.com/wodby/redis/actions)
 [![Docker Pulls](https://img.shields.io/docker/pulls/wodby/redis.svg)](https://hub.docker.com/r/wodby/redis)
 [![Docker Stars](https://img.shields.io/docker/stars/wodby/redis.svg)](https://hub.docker.com/r/wodby/redis)
 [![Docker Layers](https://images.microbadger.com/badges/image/wodby/redis.svg)](https://microbadger.com/images/wodby/redis)
@@ -11,17 +11,17 @@
 
 Overview:
 
-* All images based on Alpine Linux
-* Base image: [_/redis](https://hub.docker.com/r/_/redis)
-* [Travis CI builds](https://travis-ci.org/wodby/redis) 
-* [Docker Hub](https://hub.docker.com/r/wodby/redis)
+- All images based on Alpine Linux
+- Base image: [_/redis](https://hub.docker.com/r/_/redis)
+- [GitHub actions builds](https://github.com/wodby/redis/actions) 
+- [Docker Hub](https://hub.docker.com/r/wodby/redis)
 
 [_(Dockerfile)_]: https://github.com/wodby/redis/tree/master/Dockerfile
 
 Supported tags and respective `Dockerfile` links:
 
-* `6.0`, `6`, `latest` [_(Dockerfile)_]
-* `5.0`, `5` [_(Dockerfile)_]
+- `6.0`, `6`, `latest` [_(Dockerfile)_]
+- `5.0`, `5` [_(Dockerfile)_]
 
 ## Environment Variables
 
