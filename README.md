@@ -20,7 +20,7 @@ Overview:
 
 Supported tags and respective `Dockerfile` links:
 
-- `6.0`, `6`, `latest` [_(Dockerfile)_]
+- `6.2`, `6`, `latest` [_(Dockerfile)_]
 - `5.0`, `5` [_(Dockerfile)_]
 
 ## Environment Variables
