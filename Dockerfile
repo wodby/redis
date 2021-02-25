@@ -3,9 +3,9 @@ ARG BASE_IMAGE_TAG
 FROM redis:${BASE_IMAGE_TAG}
 
 ARG REDIS_VER
+ARG TARGETPLATFORM
 
-ENV REDIS_VER="${REDIS_VER}" \
-    GOTPL_VER="0.1.5"
+ENV REDIS_VER="${REDIS_VER}"
 
 RUN apk add --update --no-cache -t .wodby-redis-run-deps \
         bash \
@@ -17,8 +17,9 @@ RUN apk add --update --no-cache -t .wodby-redis-run-deps \
         tar \
         wget; \
     \
-    gotpl_url="https://github.com/wodby/gotpl/releases/download/${GOTPL_VER}/gotpl-alpine-linux-amd64-${GOTPL_VER}.tar.gz"; \
-    wget -qO- "${gotpl_url}" | tar xz -C /usr/local/bin; \
+    dockerplatform=${TARGETPLATFORM:-linux/amd64};\
+    gotpl_url="https://github.com/wodby/gotpl/releases/download/0.3.3/gotpl-${dockerplatform/\//-}.tar.gz"; \
+    wget -qO- "${gotpl_url}" | tar xz --no-same-owner -C /usr/local/bin; \
     \
     apk del .wodby-redis-build-deps; \
     rm -rf /var/cache/apk/*

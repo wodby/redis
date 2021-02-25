@@ -23,6 +23,8 @@ Supported tags and respective `Dockerfile` links:
 - `6.2`, `6`, `latest` [_(Dockerfile)_]
 - `5.0`, `5` [_(Dockerfile)_]
 
+All images built for `linux/amd64` and `linux/arm64`
+
 ## Environment Variables
 
 | Variable                          | Default Value           | Description |

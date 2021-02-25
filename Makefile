@@ -14,12 +14,35 @@ ifneq ($(STABILITY_TAG),)
     endif
 endif
 
-.PHONY: build test push shell run start stop logs clean release
+PLATFORM ?= linux/amd64
+
+.PHONY: build buildx-build buildx-build-amd64 buildx-push test push shell run start stop logs clean release
 
 default: build
 
 build:
 	docker build -t $(REPO):$(TAG) \
+		--build-arg BASE_IMAGE_TAG=$(BASE_IMAGE_TAG) \
+		--build-arg REDIS_VER=$(REDIS_VER) \
+		./
+
+# --load doesn't work with multiple platforms https://github.com/docker/buildx/issues/59
+# we need to save cache to run tests first.
+buildx-build-amd64:
+	docker build --platform $(PLATFORM) -t $(REPO):$(TAG) \
+		--build-arg BASE_IMAGE_TAG=$(BASE_IMAGE_TAG) \
+		--build-arg REDIS_VER=$(REDIS_VER) \
+		--load \
+		./
+
+buildx-build:
+	docker build --platform $(PLATFORM) -t $(REPO):$(TAG) \
+		--build-arg BASE_IMAGE_TAG=$(BASE_IMAGE_TAG) \
+		--build-arg REDIS_VER=$(REDIS_VER) \
+		./
+
+buildx-push:
+	docker build --platform $(PLATFORM) --push -t $(REPO):$(TAG) \
 		--build-arg BASE_IMAGE_TAG=$(BASE_IMAGE_TAG) \
 		--build-arg REDIS_VER=$(REDIS_VER) \
 		./
