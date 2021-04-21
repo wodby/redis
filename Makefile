@@ -1,6 +1,6 @@
 -include env_make
 
-REDIS_VER ?= 6.2.1
+REDIS_VER ?= 6.2.2
 
 TAG ?= $(shell echo "${REDIS_VER}" | grep -oE '^[0-9]+\.[0-9]+')
 BASE_IMAGE_TAG = $(REDIS_VER)-alpine
