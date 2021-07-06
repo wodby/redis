@@ -3,7 +3,6 @@
 REDIS_VER ?= 6.2.4
 
 TAG ?= $(shell echo "${REDIS_VER}" | grep -oE '^[0-9]+\.[0-9]+')
-BASE_IMAGE_TAG = $(REDIS_VER)-alpine
 
 REPO = wodby/redis
 NAME = redis-$(REDIS_VER)
@@ -22,7 +21,6 @@ default: build
 
 build:
 	docker build -t $(REPO):$(TAG) \
-		--build-arg BASE_IMAGE_TAG=$(BASE_IMAGE_TAG) \
 		--build-arg REDIS_VER=$(REDIS_VER) \
 		./
 
@@ -30,20 +28,17 @@ build:
 # we need to save cache to run tests first.
 buildx-build-amd64:
 	docker buildx build --platform linux/amd64 -t $(REPO):$(TAG) \
-		--build-arg BASE_IMAGE_TAG=$(BASE_IMAGE_TAG) \
 		--build-arg REDIS_VER=$(REDIS_VER) \
 		--load \
 		./
 
 buildx-build:
 	docker buildx build --platform $(PLATFORM) -t $(REPO):$(TAG) \
-		--build-arg BASE_IMAGE_TAG=$(BASE_IMAGE_TAG) \
 		--build-arg REDIS_VER=$(REDIS_VER) \
 		./
 
 buildx-push:
 	docker buildx build --platform $(PLATFORM) --push -t $(REPO):$(TAG) \
-		--build-arg BASE_IMAGE_TAG=$(BASE_IMAGE_TAG) \
 		--build-arg REDIS_VER=$(REDIS_VER) \
 		./
 
