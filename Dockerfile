@@ -1,6 +1,6 @@
 ARG REDIS_VER
 
-FROM redis:${REDIS_VER}-alpine
+FROM redis:${REDIS_VER}-alpine3.13
 
 ARG TARGETPLATFORM
 
