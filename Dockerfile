@@ -1,6 +1,6 @@
 ARG REDIS_VER
 
-FROM redis:${REDIS_VER}-alpine
+FROM wodby/base-redis:${REDIS_VER}
 
 ARG TARGETPLATFORM
 

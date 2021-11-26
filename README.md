@@ -12,7 +12,7 @@
 Overview:
 
 - All images based on Alpine Linux
-- Base image: [_/redis](https://hub.docker.com/r/_/redis)
+- Base image: [wodby/base-redis](https://github.com/wodby/base-redis)
 - [GitHub actions builds](https://github.com/wodby/redis/actions) 
 - [Docker Hub](https://hub.docker.com/r/wodby/redis)
 
