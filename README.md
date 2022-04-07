@@ -3,7 +3,6 @@
 [![Build Status](https://github.com/wodby/redis/workflows/Build%20docker%20image/badge.svg)](https://github.com/wodby/redis/actions)
 [![Docker Pulls](https://img.shields.io/docker/pulls/wodby/redis.svg)](https://hub.docker.com/r/wodby/redis)
 [![Docker Stars](https://img.shields.io/docker/stars/wodby/redis.svg)](https://hub.docker.com/r/wodby/redis)
-[![Docker Layers](https://images.microbadger.com/badges/image/wodby/redis.svg)](https://microbadger.com/images/wodby/redis)
 
 ## Docker Images
 
@@ -20,15 +19,17 @@ Overview:
 
 Supported tags and respective `Dockerfile` links:
 
-- `6.2`, `6`, `latest` [_(Dockerfile)_]
-- `5.0`, `5` [_(Dockerfile)_]
+- `6`, `latest` [_(Dockerfile)_]
+- `5` [_(Dockerfile)_]
+- `6-alpine3.13` [_(Dockerfile)_]
+- `5-alpine3.13` [_(Dockerfile)_]
 
 All images built for `linux/amd64` and `linux/arm64`
 
 ## Environment Variables
 
 | Variable                          | Default Value           | Description |
-| --------------------------------- | ----------------------- | ----------- |
+|-----------------------------------|-------------------------|-------------|
 | `REDIS_ACTIVE_REHASHING`          | `yes`                   |             |
 | `REDIS_APPENDONLY`                | `no`                    |             |
 | `REDIS_DATABASES`                 | `16`                    |             |
