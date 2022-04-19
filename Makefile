@@ -1,7 +1,6 @@
 -include env_make
 
 REDIS_VER ?= 6.2.6
-ALPINE_VER ?= 3.15
 
 TAG ?= $(shell echo "${REDIS_VER}" | grep -oE '^[0-9]+\.[0-9]+')
 
@@ -30,20 +29,17 @@ build:
 buildx-build-amd64:
 	docker buildx build --platform linux/amd64 -t $(REPO):$(TAG) \
 		--build-arg REDIS_VER=$(REDIS_VER) \
-		--build-arg ALPINE_VER=$(ALPINE_VER) \
 		--load \
 		./
 
 buildx-build:
 	docker buildx build --platform $(PLATFORM) -t $(REPO):$(TAG) \
 		--build-arg REDIS_VER=$(REDIS_VER) \
-		--build-arg ALPINE_VER=$(ALPINE_VER) \
 		./
 
 buildx-push:
 	docker buildx build --platform $(PLATFORM) --push -t $(REPO):$(TAG) \
 		--build-arg REDIS_VER=$(REDIS_VER) \
-		--build-arg ALPINE_VER=$(ALPINE_VER) \
 		./
 
 test:

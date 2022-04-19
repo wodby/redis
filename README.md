@@ -11,7 +11,7 @@
 Overview:
 
 - All images based on Alpine Linux
-- Base image: [wodby/base-redis](https://github.com/wodby/base-redis)
+- Base image: [redis](https://github.com/docker-library/redis)
 - [GitHub actions builds](https://github.com/wodby/redis/actions) 
 - [Docker Hub](https://hub.docker.com/r/wodby/redis)
 
@@ -21,8 +21,6 @@ Supported tags and respective `Dockerfile` links:
 
 - `6`, `latest` [_(Dockerfile)_]
 - `5` [_(Dockerfile)_]
-- `6-alpine3.13` [_(Dockerfile)_]
-- `5-alpine3.13` [_(Dockerfile)_]
 
 All images built for `linux/amd64` and `linux/arm64`
 
