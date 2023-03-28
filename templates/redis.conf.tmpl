@@ -1,13 +1,17 @@
 daemonize no
 pidfile /var/run/redis/redis.pid
-{{- if getenv "REDIS_LOGFILE" }}logfile {{ getenv "REDIS_LOGFILE" }}{{ end }}
+{{- if getenv "REDIS_LOGFILE" }}
+logfile {{ getenv "REDIS_LOGFILE" }}
+{{- end }}
 port 6379
 tcp-backlog {{ getenv "REDIS_TCP_BACKLOG" "511" }}
 bind 0.0.0.0
 timeout {{ getenv "REDIS_TIMEOUT" "300" }}
 tcp-keepalive {{ getenv "REDIS_TCP_KEEPALIVE" "60" }}
 databases {{ getenv "REDIS_DATABASES" "16" }}
-{{- if getenv "REDIS_PASSWORD" }}requirepass {{ getenv "REDIS_PASSWORD" }}{{ end }}
+{{- if getenv "REDIS_PASSWORD" }}
+requirepass {{ getenv "REDIS_PASSWORD" }}
+{{- end }}
 appendonly {{ getenv "REDIS_APPENDONLY" "no" }}
 {{- if getenv "REDIS_SAVE_TO_DISK" }}
 dir /data
