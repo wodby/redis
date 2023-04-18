@@ -12,7 +12,7 @@ env:
   DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
   DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
   REDIS7: '7.0.11'
-  REDIS6: '6.2.11'
+  REDIS6: '6.2.12'
   REDIS5: '5.0.14'
 
 jobs:
