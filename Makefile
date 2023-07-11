@@ -1,6 +1,6 @@
 -include env_make
 
-REDIS_VER ?= 7.0.11
+REDIS_VER ?= 7.0.12
 
 TAG ?= $(shell echo "${REDIS_VER}" | grep -oE '^[0-9]+\.[0-9]+')
 
