@@ -60,8 +60,6 @@ jobs:
     runs-on: macos-latest-xlarge
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Docker
-      uses: crazy-max/ghaction-setup-docker@v2
     - uses: docker/setup-buildx-action@v1
     - uses: ./.github/actions
       with:
