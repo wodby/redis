@@ -11,7 +11,7 @@ on:
 env:
   DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
   DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-  REDIS7: '7.2.4'
+  REDIS7: '7.2.5'
   REDIS6: '6.2.14'
   REDIS5: '5.0.14'
 
