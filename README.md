@@ -21,7 +21,6 @@ Supported tags and respective `Dockerfile` links:
 
 - `7`, `latest` [_(Dockerfile)_]
 - `6` [_(Dockerfile)_]
-- `5` [_(Dockerfile)_]
 
 All images built for `linux/amd64` and `linux/arm64`
 
