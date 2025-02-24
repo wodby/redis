@@ -30,6 +30,7 @@ All images built for `linux/amd64` and `linux/arm64`
 |-----------------------------------|-------------------------|-------------|
 | `REDIS_ACTIVE_REHASHING`          | `yes`                   |             |
 | `REDIS_APPENDONLY`                | `no`                    |             |
+| `REDIS_APPENDFSYNC`               | `everysec`              |             |
 | `REDIS_DATABASES`                 | `16`                    |             |
 | `REDIS_DBFILENAME`                | `dump.rdb`              |             |
 | `REDIS_LATENCY_MONITOR_THRESHOLD` | `0`                     |             |
