@@ -12,7 +12,6 @@ env:
   DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
   DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
   REDIS7: '7.4.2'
-  REDIS6: '6.2.14'
 
 jobs:
   redis7:
@@ -27,17 +26,4 @@ jobs:
       with:
         version: ${{ env.REDIS7 }}
         tags: 7,latest
-        platform: linux/amd64,linux/arm64
-  redis6:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - uses: docker/setup-qemu-action@v3
-      with:
-        platforms: amd64,arm64
-    - uses: docker/setup-buildx-action@v3
-    - uses: ./.github/actions
-      with:
-        version: ${{ env.REDIS6 }}
-        tags: 6
         platform: linux/amd64,linux/arm64

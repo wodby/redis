@@ -13,7 +13,7 @@ databases {{ getenv "REDIS_DATABASES" "16" }}
 requirepass {{ getenv "REDIS_PASSWORD" }}
 {{- end }}
 {{- if getenv "REDIS_SAVE_TO_DISK" }}
-appendonly {{ getenv "REDIS_APPENDONLY" "no" }}
+appendonly {{ getenv "REDIS_APPENDONLY" "yes" }}
 appendfsync {{ getenv "REDIS_APPENDFSYNC" "everysec" }}
 dir /data
 dbfilename {{ getenv "REDIS_DBFILENAME" "dump.rdb" }}
