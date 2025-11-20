@@ -2,7 +2,7 @@
 
 set -exo pipefail
 
-if [[ "${GITHUB_REF}" == refs/heads/main || "${GITHUB_REF}" == refs/tags/* ]]; then      
+if [[ "${GITHUB_REF}" == refs/heads/master || "${GITHUB_REF}" == refs/tags/* ]]; then      
   minor_ver="${REDIS_VER%.*}"
   major_ver="${minor_ver%.*}"
 
