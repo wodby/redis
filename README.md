@@ -6,11 +6,11 @@
 
 ## Docker Images
 
-❗For better reliability we release images with stability tags (`wodby/redis:7-X.X.X`) which correspond to [git tags](https://github.com/wodby/redis/releases). We strongly recommend using images only with stability tags. 
+❗For better reliability we release images with stability tags (`wodby/redis:8-X.X.X`) which correspond to [git tags](https://github.com/wodby/redis/releases). We strongly recommend using images only with stability tags. 
 
 Overview:
 
-- All images based on Alpine Linux
+- All images are based on Alpine Linux
 - Base image: [redis](https://github.com/docker-library/redis)
 - [GitHub actions builds](https://github.com/wodby/redis/actions) 
 - [Docker Hub](https://hub.docker.com/r/wodby/redis)
@@ -19,7 +19,9 @@ Overview:
 
 Supported tags and respective `Dockerfile` links:
 
-- `7`, `latest` [_(Dockerfile)_]
+- `8.2`, `8`, `latest` [_(Dockerfile)_]
+- `8.0` [_(Dockerfile)_]
+- `7.4`, `7`, `latest` [_(Dockerfile)_]
 
 All images built for `linux/amd64` and `linux/arm64`
 
@@ -32,6 +34,7 @@ All images built for `linux/amd64` and `linux/arm64`
 | `REDIS_APPENDFSYNC`               | `everysec`              |                                                                                                 |
 | `REDIS_DATABASES`                 | `16`                    |                                                                                                 |
 | `REDIS_DBFILENAME`                | `dump.rdb`              |                                                                                                 |
+| `REDIS_IO_THREADS`                | `1`                     |                                                                                                 |
 | `REDIS_LATENCY_MONITOR_THRESHOLD` | `0`                     |                                                                                                 |
 | `REDIS_LIST_MAX_ZIPLIST_ENTRIES`  | `512`                   |                                                                                                 |
 | `REDIS_LIST_MAX_ZIPLIST_VALUE`    | `64`                    |                                                                                                 |
