@@ -1,21 +1,20 @@
 -include env_make
 
-REDIS_VER ?= 7.4.7
+REDIS_VER ?= 8.2.3
+REDIS_VER_MINOR = $(shell echo "${REDIS_VER}" | grep -oE '^[0-9]+\.[0-9]+')
 
-TAG ?= $(shell echo "${REDIS_VER}" | grep -oE '^[0-9]+\.[0-9]+')
+TAG ?= $(REDIS_VER_MINOR)
 
 REPO = wodby/redis
 NAME = redis-$(REDIS_VER)
 
-ifneq ($(STABILITY_TAG),)
-    ifneq ($(TAG),latest)
-        override TAG := $(TAG)-$(STABILITY_TAG)
-    endif
+PLATFORM ?= linux/arm64
+
+ifneq ($(ARCH),)
+	override TAG := $(TAG)-$(ARCH)
 endif
 
-PLATFORM ?= linux/amd64
-
-.PHONY: build buildx-build buildx-build-amd64 buildx-push test push shell run start stop logs clean release
+.PHONY: build buildx-build buildx-push test push shell run start stop logs clean release
 
 default: build
 
@@ -24,23 +23,22 @@ build:
 		--build-arg REDIS_VER=$(REDIS_VER) \
 		./
 
-# --load doesn't work with multiple platforms https://github.com/docker/buildx/issues/59
-# we need to save cache to run tests first.
-buildx-build-amd64:
-	docker buildx build --platform linux/amd64 -t $(REPO):$(TAG) \
-		--build-arg REDIS_VER=$(REDIS_VER) \
-		--load \
-		./
-
 buildx-build:
 	docker buildx build --platform $(PLATFORM) -t $(REPO):$(TAG) \
 		--build-arg REDIS_VER=$(REDIS_VER) \
+		--load \		
 		./
 
 buildx-push:
 	docker buildx build --platform $(PLATFORM) --push -t $(REPO):$(TAG) \
 		--build-arg REDIS_VER=$(REDIS_VER) \
 		./
+
+buildx-imagetools-create:
+	docker buildx imagetools create -t $(REPO):$(TAG) \
+				$(REPO):$(REDIS_VER_MINOR)-amd64 \
+				$(REPO):$(REDIS_VER_MINOR)-arm64
+.PHONY: buildx-imagetools-create
 
 test:
 	cd ./tests && IMAGE=$(REPO):$(TAG) NAME=$(NAME) ./run.sh

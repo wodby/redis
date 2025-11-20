@@ -37,3 +37,4 @@ slowlog-log-slower-than {{ getenv "REDIS_SLOWLOG_SLOWER_THAN" "10000" }}
 slowlog-max-len {{ getenv "REDIS_SLOWLOG_MAX_LEN" "32" }}
 latency-monitor-threshold {{ getenv "REDIS_LATENCY_MONITOR_THRESHOLD" "0" }}
 notify-keyspace-events "{{ getenv "REDIS_NOTIFY_KEYSPACE_EVENTS" "" }}"
+io-threads {{ getenv "REDIS_IO_THREADS" "1" }}
