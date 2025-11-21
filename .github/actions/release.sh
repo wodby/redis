@@ -8,18 +8,18 @@ if [[ "${GITHUB_REF}" == refs/heads/master || "${GITHUB_REF}" == refs/tags/* ]];
 
   tags=("${minor_ver}")
 
-  if [[ -n "${LATEST_MAJOR}" ]]; then
+  if [[ "${LATEST_MAJOR}" == "true" ]]; then
     tags+=("${major_ver}")
   fi  
 
   if [[ "${GITHUB_REF}" == refs/tags/* ]]; then
-    stability_tag=("${GITHUB_REF##*/}")
+    stability_tag="${GITHUB_REF##*/}"
     tags=("${minor_ver}-${stability_tag}")
-    if [[ -n "${LATEST_MAJOR}" ]]; then
+    if [[ "${LATEST_MAJOR}" == "true" ]]; then
       tags+=("${major_ver}-${stability_tag}")
     fi
   else          
-    if [[ -n "${LATEST}" ]]; then
+    if [[ "${LATEST}" == "true" ]]; then
       tags+=("latest")
     fi
   fi
