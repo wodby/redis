@@ -23,9 +23,9 @@ jobs:
         run: |
           cat << 'EOF' > versions.json
           [
-            {"key": "redis82", "version": "${{ env.REDIS82 }}", "latest": true, "latest_major": true},
-            {"key": "redis80", "version": "${{ env.REDIS80 }}", "latest": false, "latest_major": false},
-            {"key": "redis74", "version": "${{ env.REDIS74 }}", "latest": false, "latest_major": true}
+            {"key": "redis82", "version": "${{ env.REDIS82 }}", "latest": "1", "latest_major": "1"},
+            {"key": "redis80", "version": "${{ env.REDIS80 }}", "latest": "", "latest_major": ""},
+            {"key": "redis74", "version": "${{ env.REDIS74 }}", "latest": "", "latest_major": "1"}
           ]
           EOF
           echo "redis-versions=$(cat versions.json | jq -c .)" >> $GITHUB_OUTPUT
