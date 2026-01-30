@@ -9,6 +9,7 @@ on:
     - '*'
 
 env:
+  REDIS84: '8.4.0'
   REDIS82: '8.2.3'
   REDIS80: '8.0.5'
   REDIS74: '7.4.7'
@@ -23,7 +24,8 @@ jobs:
         run: |
           cat << 'EOF' > versions.json
           [
-            {"key": "redis82", "version": "${{ env.REDIS82 }}", "latest": "1", "latest_major": "1"},
+            {"key": "redis84", "version": "${{ env.REDIS84 }}", "latest": "1", "latest_major": "1"},
+            {"key": "redis82", "version": "${{ env.REDIS82 }}", "latest": "", "latest_major": ""},
             {"key": "redis80", "version": "${{ env.REDIS80 }}", "latest": "", "latest_major": ""},
             {"key": "redis74", "version": "${{ env.REDIS74 }}", "latest": "", "latest_major": "1"}
           ]
@@ -45,7 +47,7 @@ jobs:
             runner: ubuntu-24.04-arm
     runs-on: ${{ matrix.runner }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
@@ -68,7 +70,7 @@ jobs:
       matrix:
         redis: ${{ fromJson(needs.setup.outputs.redis-versions) }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
