@@ -1,6 +1,6 @@
 -include env_make
 
-REDIS_VER ?= 8.2.3
+REDIS_VER ?= 8.4.0
 REDIS_VER_MINOR = $(shell echo "${REDIS_VER}" | grep -oE '^[0-9]+\.[0-9]+')
 
 TAG ?= $(REDIS_VER_MINOR)
