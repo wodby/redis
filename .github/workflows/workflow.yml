@@ -12,7 +12,7 @@ env:
   REDIS84: '8.4.2'
   REDIS82: '8.2.5'
   REDIS80: '8.0.6'
-  REDIS74: '7.4.7'
+  REDIS74: '7.4.8'
 
 jobs:
   setup:
