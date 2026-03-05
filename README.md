@@ -22,7 +22,6 @@ Supported tags and respective `Dockerfile` links:
 - `8.6`, `8`, `latest` [_(Dockerfile)_]
 - `8.4` [_(Dockerfile)_]
 - `8.2` [_(Dockerfile)_]
-- `8.0` [_(Dockerfile)_]
 - `7.4`, `7` [_(Dockerfile)_]
 
 All images built for `linux/amd64` and `linux/arm64`
