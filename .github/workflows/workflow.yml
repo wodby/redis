@@ -9,6 +9,7 @@ on:
     - '*'
 
 env:
+  REDIS86: '8.6.1'
   REDIS84: '8.4.2'
   REDIS82: '8.2.5'
   REDIS80: '8.0.6'
@@ -24,7 +25,8 @@ jobs:
         run: |
           cat << 'EOF' > versions.json
           [
-            {"key": "redis84", "version": "${{ env.REDIS84 }}", "latest": "1", "latest_major": "1"},
+            {"key": "redis86", "version": "${{ env.REDIS86 }}", "latest": "1", "latest_major": "1"},
+            {"key": "redis84", "version": "${{ env.REDIS84 }}", "latest": "", "latest_major": ""},
             {"key": "redis82", "version": "${{ env.REDIS82 }}", "latest": "", "latest_major": ""},
             {"key": "redis80", "version": "${{ env.REDIS80 }}", "latest": "", "latest_major": ""},
             {"key": "redis74", "version": "${{ env.REDIS74 }}", "latest": "", "latest_major": "1"}
