@@ -11,7 +11,7 @@ on:
 env:
   REDIS86: '8.6.4'
   REDIS84: '8.4.4'
-  REDIS82: '8.2.6'
+  REDIS82: '8.2.7'
   REDIS74: '7.4.9'
 
 jobs:
