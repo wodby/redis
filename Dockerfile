@@ -7,7 +7,10 @@ ARG REDIS_VER=8
 
 ENV REDIS_VER="${REDIS_VER}"
 
-RUN apk add --update --no-cache -t .wodby-redis-run-deps \
+# Upgrade inherited packages even when their existing versions satisfy dependencies.
+RUN set -ex; \
+    apk upgrade --no-cache; \
+    apk add --update --no-cache -t .wodby-redis-run-deps \
         bash \
         make \
         tzdata; \
