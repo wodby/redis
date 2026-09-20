@@ -16,21 +16,25 @@ endif
 
 .PHONY: build buildx-build buildx-push test push shell run start stop logs clean release
 
+# Resolve the same pinned base image for every local and CI build target.
+include base-images.mk
+BASE_IMAGE_TAG = $(REDIS_VER)-alpine
+
 default: build
 
 build:
-	docker build -t $(REPO):$(TAG) \
+	docker build --build-arg BASE_IMAGE="$(BASE_IMAGE)" -t $(REPO):$(TAG) \
 		--build-arg REDIS_VER=$(REDIS_VER) \
 		./
 
 buildx-build:
-	docker buildx build --platform $(PLATFORM) -t $(REPO):$(TAG) \
+	docker buildx build --build-arg BASE_IMAGE="$(BASE_IMAGE)" --platform $(PLATFORM) -t $(REPO):$(TAG) \
 		--build-arg REDIS_VER=$(REDIS_VER) \
 		--load \		
 		./
 
 buildx-push:
-	docker buildx build --platform $(PLATFORM) --push -t $(REPO):$(TAG) \
+	docker buildx build --build-arg BASE_IMAGE="$(BASE_IMAGE)" --platform $(PLATFORM) --push -t $(REPO):$(TAG) \
 		--build-arg REDIS_VER=$(REDIS_VER) \
 		./
 
