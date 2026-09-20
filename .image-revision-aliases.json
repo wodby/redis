@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "image": "wodby/redis",
+  "versions": [
+    {
+      "version": {
+        "env": "REDIS86"
+      },
+      "variants": [
+        {
+          "short": [
+            "{minor}",
+            "{major}"
+          ],
+          "full": "{version}"
+        }
+      ]
+    },
+    {
+      "version": {
+        "env": "REDIS84"
+      },
+      "variants": [
+        {
+          "short": [
+            "{minor}"
+          ],
+          "full": "{version}"
+        }
+      ]
+    },
+    {
+      "version": {
+        "env": "REDIS82"
+      },
+      "variants": [
+        {
+          "short": [
+            "{minor}"
+          ],
+          "full": "{version}"
+        }
+      ]
+    },
+    {
+      "version": {
+        "env": "REDIS74"
+      },
+      "variants": [
+        {
+          "short": [
+            "{minor}",
+            "{major}"
+          ],
+          "full": "{version}"
+        }
+      ]
+    }
+  ]
+}
