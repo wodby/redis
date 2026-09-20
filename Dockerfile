@@ -1,6 +1,10 @@
+# check=skip=InvalidDefaultArgInFrom
+
+# The Makefile supplies the required digest-pinned BASE_IMAGE argument.
 ARG REDIS_VER=8
 
-FROM redis:${REDIS_VER}-alpine
+ARG BASE_IMAGE
+FROM ${BASE_IMAGE}
 
 ARG TARGETPLATFORM
 ARG REDIS_VER=8
